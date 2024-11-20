@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<!-- saved from url=(0495)https://mpi.gc.ge/page1/?lang_code=ka&merch_id=A4C77D87AB6FF7B2D13156438B84EA85&back_url_s=https%3A%2F%2Fipay.ge%2Fpaygc%2F%3Forder_id%3D2de478bf0d5e5918c0c811c81dc07b1b9275f8f5%26status%3D0&back_url_f=https%3A%2F%2Fipay.ge%2Fpaygc%2F%3Forder_id%3D2de478bf0d5e5918c0c811c81dc07b1b9275f8f5%26status%3D1&o.merchant_name=VELIstore&o.account_id=POS180VK&o.amount=99900&o.order_id=2de478bf0d5e5918c0c811c81dc07b1b9275f8f5&o.currency=981&o.key=b361ca0b3014f0d1df872b670b5d003338116bfd#99MR7PPXYCU25ENR -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ბარათის დეტალები</title>
+
+    <script src="./bgg_files/settings.js"></script>
+    <script src="./bgg_files/paymentpage.min.js"></script>
+
+    <link rel="stylesheet" href="./bgg_files/paymentpage.css">
+    <script>
+        var EXTENDED_CODE_DESCRIPTIONS = {
+            2: 'მიმართეთ მაღაზიის კლიენტთა მხარდაჭერის სამსახურს.',
+            8: 'ოპერაციის შესრულება არ არის შესაძლებელი, მიმართეთ მაღაზიის კლიენტთა მხარდაჭერის სამსახურს.',
+            104: 'შეცვალეთ ბარათი ან მიმართეთ მაღაზიის მხარდაჭერის სამსახურს.',
+            105: 'ოპერაციის შესრულება არ არის შესაძლებელი, მიმართეთ მაღაზიის კლიენტთა მხარდაჭერის სამსახურს.',
+            107: 'ოპერაციის შესრულება არ არის შესაძლებელი, გთხოვთ სცადოთ მოგვიანებით.',
+            300: 'თანხის ბლოკირება, შესრულდა წარმატებით.',
+            1001: 'მიმართეთ მაღაზიის კლიენტთა მხარდაჭერის სამსახურს.',
+            1003: 'მიმართეთ მაღაზიის კლიენტთა მხარდაჭერის სამსახურს.',
+            3015: 'ბარათზე არ არის საკმარისი თანხა.',
+            3016: 'ოპერაცია გაუქმებულია გადახდის მიმღები ბანკის მიერ.',
+            3017: 'ოპერაცია უარყოფილია ბარათის გამომშვები ბანკის მიერ.',
+            3018: 'ოპერაციის შესრულება არ არის შესაძლებელი.',
+            3019: 'ოპერაციის შესრულება არ არის შესაძლებელი, გთხოვთ სცადოთ მოგვიანებით.',
+            3020: 'მითითებული ბარათით, ოპერაციის შესრულება არ არის შესაძლებელი.',
+            3021: 'ბარათის მონაცემები არასწორია.',
+            3023: 'ოპერაციის შესრულების დრო ამოიწურა.',
+            3024: 'ოპერაციის შესრულება არ არის შესაძლებელი.',
+            4010: 'ოპერაციის შესრულების დრო ამოიწურა.',
+            4024: 'გადახდა გაუქმებულია.',
+            5001: 'მიმართეთ მაღაზიის კლიენტთა მხარდაჭერის სამსახურს.',
+            5002: 'ოპერაციის შესრულება არ არის შესაძლებელი, გთხოვთ სცადოთ მოგვიანებით.',
+            'SYSTEM_ERROR': 'მიმართეთ მაღაზიის კლიენტთა მხარდაჭერის სამსახურს.',
+            'LIMIT_EXCEEDED': 'ოპერაციის შესრულება არ არის შესაძლებელი, მიმართეთ მაღაზიის კლიენტთა მხარდაჭერის სამსახურს.',
+            'FM_REJECTED': 'შეცვალეთ ბარათი ან მიმართეთ მაღაზიის მხარდაჭერის სამსახურს.',
+            'FM_REJECTED_BY_SCORE': 'ოპერაციის შესრულება არ არის შესაძლებელი, მიმართეთ მაღაზიის კლიენტთა მხარდაჭერის სამსახურს.',
+            'FM_FAILED': 'ოპერაციის შესრულება არ არის შესაძლებელი, გთხოვთ სცადოთ მოგვიანებით.',
+            'PREAUTHORIZATION_OK': 'თანხის ბლოკირება, შესრულდა წარმატებით.',
+            'REDIRECT_REQUIRED': 'მიმართეთ მაღაზიის კლიენტთა მხარდაჭერის სამსახურს.',
+            'OFFER_REQUIRED': 'მიმართეთ მაღაზიის კლიენტთა მხარდაჭერის სამსახურს.',
+            'INSUFFICIENT_FUNDS': 'ბარათზე არ არის საკმარისი თანხა.',
+            'DECLINED_BY_ACQUIRER': 'ოპერაცია გაუქმებულია გადახდის მიმღები ბანკის მიერ.',
+            'DECLINED_BY_ISSUER': 'ოპერაცია უარყოფილია ბარათის გამომშვები ბანკის მიერ.',
+            'CARD_FAULT': 'ოპერაციის შესრულება არ არის შესაძლებელი.',
+            'AUTHORIZATION_FAILED': 'ოპერაციის შესრულება არ არის შესაძლებელი, გთხოვთ სცადოთ მოგვიანებით.',
+            'AUTHENTICATION_DECLINED': 'გადახდა გაუქმებულია.',
+            'CARD_NOT_SUPPORTED': 'მითითებული ბარათით, ოპერაციის შესრულება არ არის შესაძლებელი.',
+            'CARD_DATA_INVALID': 'ბარათის მონაცემები არასწორია.',
+            'AUTHENTICATION_TIMEOUT': 'ოპერაციის შესრულების დრო ამოიწურა.',
+            'AUTHENTICATION_FAILED': 'ოპერაციის შესრულება არ არის შესაძლებელი.',
+            'OFFER_FAILED': 'ოპერაციის შესრულების დრო ამოიწურა.',
+            'OFFER_TIMEOUT': 'ოპერაციის შესრულების დრო ამოიწურა.',
+            'OFFER_DECLINED': 'გადახდა გაუქმებულია.',
+            'DECLINED_BY_CLIENT': 'გადახდა გაუქმებულია.',
+            'CPA_REJECTED': 'მიმართეთ მაღაზიის კლიენტთა მხარდაჭერის სამსახურს.',
+            'CPA_FAILED': 'ოპერაციის შესრულება არ არის შესაძლებელი, გთხოვთ სცადოთ მოგვიანებით.',
+            'AMOUNT_LIMIT_EXCEEDED': 'AMOUNT_LIMIT_EXCEEDED',
+            'FREQUENCY_LIMIT_EXCEEDED': 'FREQUENCY_LIMIT_EXCEEDED',
+            'CARD_NOT_EFFECTIVE': 'CARD_NOT_EFFECTIVE',
+            'CARD_RESTRICTED': 'CARD_RESTRICTED',
+            'CARD_LOST': 'CARD_LOST',
+            'CARD_STOLEN': 'CARD_STOLEN'
+        };
+        var urlParams = Utils.parseQueryString(),
+            lang = urlParams.lang_code || urlParams.lang || 'en',
+            dictionary = Utils.getDictionary(lang);
+    </script>
+<meta http-equiv="origin-trial" id="origin-trial" content="Ayudt5SzRWp86yExqv4T3+PiWzcX+WBtprm+ux6vfIGn5Dg3JSrZL2Y5UkppRzYnVyYzu8hvj+Q4pdGSWsLVYgMAAABgeyJvcmlnaW4iOiJodHRwczovL3BheS5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJUcGNkIiwiZXhwaXJ5IjoxNzM1MzQzOTk5LCJpc1RoaXJkUGFydHkiOnRydWV9"></head>
+<body id="thebody">
+    <div class="container">
+        <div class="bank-logo">
+            <img src="./bgg_files/logo-new.png" alt="Bank of Georgia" height="39">
+        </div>
+
+        <div class="ascBlock" id="acs" style="display: none;"></div>
+
+        <div class="window">
+            <div id="purchase" class="order" style="display: block;">
+                <div class="window-header">
+                    <div class="media">
+                        <div class="circle-logo">
+                            <img class="merchant-logo" src="./bgg_files/V2.jpg" alt="logo">
+                        </div>
+                        <div class="media-body">
+                            <p class="merchant-title">
+                                VELI.STORE IPAY
+                            </p>
+                            <p tpl-if="merchant.legalBusinessName" class="merchant-legal-name">
+                                LTD SATURN
+                            </p>
+                            <div class="description">
+                                <div class="purchase-description">
+                                    563922, ფირსაკრავი JBL Spinner BT Turntable Black/Orange, 
+                                </div>
+                                <div class="purchase-description">GE, Tbilisi</div>
+                            </div>
+                        </div>
+
+                        <div id="hideIfP2P" class="hideIfP2P">
+                            <div class="amount-header">
+                                <div class="window-header-title">თანხა:</div>
+                                <div class="purchase-amount" id="amount">999.00 ₾</div>
+                            </div>
+
+                            <div tpl-if="bonus" class="pay-bonus pay-bonus-msg-wrapper">
+                                <div class="bonus-title">PLUS ქულა:</div>
+                                <div class="bonus-amount">
+                                    399600.00
+                                    <img src="./bgg_files/bonus-plus-logo.png" width="34" ;="" vertical-align:="" bottom;"="">
+                                </div>
+                            </div>
+                            <div tpl-if="mr_bonus" class="pay-bonus pay-bonus-msg-wrapper">
+                                <div class="bonus-title">MR ქულა:</div>
+                                <div class="bonus-amount">
+                                    149850.00
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="progress" style="display: none;">
+                <div class="progress">
+                    მიმდინარეობს ოპერაციის დამუშავება. გთხოვთ, დაელოდეთ.
+                    <div style="padding-top:1em">
+                        <div id="warningGradientOuterBarG">
+                            <div id="warningGradientFrontBarG" class="warningGradientAnimationG">
+                                <div class="warningGradientBarLineG"></div>
+                                <div class="warningGradientBarLineG"></div>
+                                <div class="warningGradientBarLineG"></div>
+                                <div class="warningGradientBarLineG"></div>
+                                <div class="warningGradientBarLineG"></div>
+                                <div class="warningGradientBarLineG"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="payment-error" class="payment-error" style="display: none;">
+                <h2 class="result-error">ოპერაცია არ შესრულდა</h2>
+                <div class="desc" tpl-if="decs.error">{decs.error}</div>
+                <div class="desc">ოპერაციის შესრულება არ არის შესაძლებელი, სცადეთ მოგვიანებით.</div>
+                <div class="btn_single">
+                    <a href="https://mpi.gc.ge/page1/%7Bback_url%7D" tpl-if="back_url">
+                        <input type="submit" class="btn btn-primary btn-back" value="უკან დაბრუნება">
+                    </a>
+                </div>
+            </div>
+
+            <div id="cardPage-error" class="payment-error" style="display: none;">
+                <h2 class="result-error">ტრანზაქცია არ შესრულდა</h2>
+                <div class="desc">ოპერაციის შესრულება არ არის შესაძლებელი, სცადეთ მოგვიანებით.</div>
+                <div class="btn_single">
+                    <a href="https://mpi.gc.ge/page1/%7Bback_url%7D" tpl-if="back_url">
+                        <input type="submit" class="btn btn-primary btn-back" value="უკან დაბრუნება">
+                    </a>
+                </div>
+            </div>
+
+            <div id="state-error" class="payment-error" style="display: none;">
+                <h2 class="result-error">ოპერაციის შესრულება არ არის შესაძლებელი, სცადეთ მოგვიანებით</h2>
+                <div class="desc">ოპერაციის შესრულება არ არის შესაძლებელი, სცადეთ მოგვიანებით.</div>
+                <div class="btn_single">
+                    <input type="button" class="btn btn-primary btn-back request-state" value="განაახლეთ მონაცემები">
+                </div>
+            </div>
+
+            <div id="start-error" class="payment-error" style="display: none;">
+                <h2 class="result-error">დაფიქსირდა შეცდომა. გადახდა არ არის შესრულებული.</h2>
+                <div class="desc">მიმართეთ მაღაზიის კლიენტთა მხარდაჭერის სამსახურს.</div>
+            </div>
+
+            <div id="offer" style="display: block;">
+                <form id="payment-form" class="payment-form" name="p.params" method="POST" autocomplete="off" novalidate="novalidate">
+                    <div class="card" id="card">
+                        <div class="card-front">
+                            <div class="card-description">
+                                <p class="upper-text">ბარათის დეტალები</p>
+                                <div>
+                                    <div id="brand-logo" class="brand-logo" style="top:56px"></div>
+                                </div>
+                            </div>
+
+                            <div class="card-details">
+                                <div class="card-details-pan">
+                                    <p class="card-details-title">ბარათის ნომერი</p>
+                                    <div class="input-group">
+                                        <span id="pan-input" class="form-input">
+                                            <input id="pan" name="src.pan" type="tel" class="card-pan-input empty" placeholder="0000 0000 0000 0000 000" autocomplete="off" required="required" data-rule-pan="true" data-rule-minlength="16" data-msg-required="გთხოვთ, შეავსოთ ცარიელი ველი" data-msg-pan="ბარათის ნომერი არასწორია" data-msg-minlength1="გთხოვთ, შეიყვანოთ მინიმუმ" data-msg-minlength2="ციფრი" data-msg-nodublicate="მიმღების და გამგზავნის ბარათის ნომერი არ უნდა ემთხვეოდეს" data-msg-pangambling="ბარათი შეზღუდულია აზარტულ თამაშებში გადახდებისათვის" data-msg-availablebrand="ამ ბარათიდან გადარიცხვა შეუძლებელია. მხოლოდ VISA და MASTERCARD არის მხარდაჭერილი" tabindex="1" maxlength="31" aria-required="true">
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div id="expiry-block" class="card-details-expiry d-none">
+                                    <p class="card-details-title">ვადა</p>
+                                    <div class="input-group" id="expiry" style="padding-left: 7px;">
+                                        <input type="hidden" name="src.expiry" value="" class="empty">
+                                        <span id="month-input" class="form-input">
+                                            <input id="month" name="p.expiry.month" placeholder="00" type="tel" maxlength="2" data-rule-min="1" data-rule-max="12" data-rule-minlength="2" data-msg="ერთი თვის სპექტრი 01-12." data-msg-minlength="შეიყვანეთ 2 ციფრი" data-msg-required="გთხოვთ, შეავსოთ ცარიელი ველი" data-next-elem="year" tabindex="2" autocomplete="off" aria-required="true" class="empty">
+                                        </span>
+                                        <span style="color: #9c9c9c">/</span>
+                                        <span id="year-input" class="form-input">
+                                            <input id="year" name="p.expiry.year" maxlength="2" type="tel" class="empty" placeholder="00" data-rule-min="20" data-rule-minlength="2" data-msg="მოქმედების ვადა არასწორია" data-msg-minlength="შეიყვანეთ 2 ციფრი" data-msg-required="გთხოვთ, შეავსოთ ცარიელი ველი" data-next-elem="cvc" tabindex="3" autocomplete="off" aria-required="true">
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div id="cvc-block" class="d-none card-details-cvc">
+                                    <p class="cvc-label card-details-title">CVV</p>
+                                    <div class="cvc">
+                                    <span id="cvc-input" class="form-input">
+                                        <input id="cvc" name="src.csc" maxlength="4" type="tel" class="empty" placeholder="- - -" required="required" data-rule-minlength="3" data-msg-minlength1="შეიყვანეთ" data-msg-minlength2="ციფრი" data-msg-required="გთხოვთ, შეავსოთ ცარიელი ველი" data-next-elem="name" tabindex="4" autocomplete="off" aria-required="true">
+                                    </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="common-error-container" style="display: none;"></div>
+
+                            <div id="showCardholderField" style="display:none">
+                                <div class="card-cardholder">
+                                    <p class="card-details-title">მფლობელი</p>
+                                    <div class="input-group" id="cardholder">
+                                    <span id="cardholdername-input" class="form-input">
+                                        <input id="name" name="src.cardholder" maxlength="24" class="cardholder-input empty" placeholder="სახელი გვარი" data-msg-required="გთხოვთ, შეავსოთ ცარიელი ველი" data-msg-chars="აღნიშნული ველის შევსება უნდა მოხდეს ლათინურად" value="" tabindex="5" autocomplete="off" aria-required="true">
+                                    </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="showP2PFields" style="display:none">
+                                <div class="card-amount">
+                                    <p class="card-details-title">თანხა ₾</p>
+                                    <div class="input-group">
+                                            <span id="card-amount-input" class="form-input">
+                                                <input id="p2p_amount" class="amount-input empty" name="amount" maxlength="10" placeholder="0.00" autocomplete="off" tabindex="6" data-msg-required="გთხოვთ, შეავსოთ ცარიელი ველი" data-msg-amount-chars="მაქს. დასაშვებია 2 სიმბოლო" data-msg-min-amount="მინიმალური გადარიცხვის თანხა უნდა იყოს მინიმუმ 0.01">
+                                            </span>
+                                    </div>
+                                </div>
+
+                                <div class="card-description" style="margin-top: 6px; display:flex;">
+                                    <p class="upper-text">მიმღების ბარათის მონაცემები</p>
+                                    <div id="dst-brand-logo" class="dst-brand-logo"></div>
+                                </div>
+
+                                <div class="dst-card-details">
+                                    <div class="card-details-pan">
+                                        <p class="card-details-title">ბარათის ნომერი</p>
+                                        <div class="input-group">
+                                                <span id="dst-pan-input">
+                                                    <input id="pan2" name="dst.pan" type="tel" class="card-pan-input empty" placeholder="0000 0000 0000 0000 000" autocomplete="off" required="required" data-rule-pan="true" data-rule-minlength="16" data-msg-required="გთხოვთ, შეავსოთ ცარიელი ველი" data-msg-pan="ბარათის ნომერი არასწორია" data-msg-minlength1="გთხოვთ, შეიყვანოთ მინიმუმ" data-msg-minlength2="ციფრი" data-msg-nodublicate="მიმღების და გამგზავნის ბარათის ნომერი არ უნდა ემთხვეოდეს" data-msg-noavailablebrand="გადარიცხვა შესაძლებელია მხოლოდ ქართულ ბარათებზე" tabindex="7" maxlength="31" aria-required="true">
+                                                </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="commission_block">
+                            <div id="commission_text"></div>
+                            <div id="i_agree_commission-wrapper">
+                                <input type="checkbox" id="i_agree">
+                                <label for="i_agree">ვეთანხმები</label>
+                            </div>
+                        </div>
+
+                        <div class="save_card_block">
+                            <input type="checkbox" id="addToProfile" name="src.addToProfile"><label for="addToProfile">თანახმა ვარ ბარათის დამახსოვრებაზე და ვეთანხმები <a href="https://conditions.bog.ge/m/u/LegalFiles/2Terms_GEO.pdf" target="_blank">პირობებს</a></label>
+                        </div>
+                    </div>
+
+                    <div class="applepay-btn-group">
+                        <p class="applepay-error">
+                            მოცემულ მოწყობილობაზე არ ხდება ApplePay გადახდის მხარდაჭერა.
+                        </p>
+                        <div class="list_spb" style="display:flex;justify-content:space-around;">
+                            <input class="btn btn-bonus" id="btnBonus" type="submit" tabindex="6" value="გადაიხადეთ              " disabled="disabled" style="">
+
+                            <input class="btn btn-mr-bonus add-btn-margin" id="btnMrBonus" type="submit" tabindex="7" value="MR ქულებით გადახდა" disabled="disabled" style="">
+
+                            <input class="btn btn-primary btnPay" id="btnPay" type="submit" tabindex="5" value="გადახდა (999.00 ₾)" disabled="disabled">
+                        </div>
+
+                        <div id="btnPayWide" style="display:none">
+                            <input class="btn btn-primary btnPay" type="submit" tabindex="5" value="გადახდა (999.00 ₾)" disabled="disabled">
+                        </div>
+
+                        <div class="wallet-container">
+                            <div class="wallet-text">ან</div>
+                            <div class="wallet-buttons">
+                                <div class="apple-pay-container">
+                                    <div class="apple-pay-button"></div>
+                                </div>
+                                <div class="google-pay-container"></div>
+                            </div>
+                        </div>
+                        <div id="mrBonusText" style="display: none;">
+                            <div>კლიენტის საბონუსე პროგრამაში მონაწილეობა რეგულირდება „საქართველოს ბანკთან“ ხელშეკრულებით.</div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="cardPage" style="display: none;">
+                <form id="payment-form" class="payment-form" name="p.params" method="POST" autocomplete="off">
+                    <div class="card">
+                        <div class="card-front">
+                            <div class="card-description">
+                                <p class="upper-text">ბარათის დეტალები</p>
+                                <div>
+                                    <div id="brand-logo" class="brand-logo" style="top:56px"></div>
+                                </div>
+                            </div>
+
+                            <div class="card-details">
+                                <div class="card-details-pan">
+                                    <p class="card-details-title">ბარათის ნომერი</p>
+                                    <div class="input-group">
+                                    <span id="pan-input" class="form-input">
+                                        <input id="pan" name="pan" type="tel" class="card-pan-input empty" placeholder="0000 0000 0000 0000 000" value="" autocomplete="off" required="required" data-rule-pan="true" data-rule-minlength="16" data-msg-required="გთხოვთ, შეავსოთ ცარიელი ველი" data-msg-pan="ბარათის ნომერი არასწორია" data-msg-minlength1="გთხოვთ, შეიყვანოთ მინიმუმ" data-msg-minlength2="ციფრი" tabindex="1" maxlength="31" aria-required="true">
+                                    </span>
+                                    </div>
+                                </div>
+
+                                <div id="expiry-block" class="card-details-expiry d-none">
+                                    <p class="card-details-title">ვადა</p>
+                                    <div class="input-group" id="expiry" style="padding-left: 7px;">
+                                        <input type="hidden" name="expiry" value="" class="empty">
+                                        <span id="month-input" class="form-input">
+                                            <input id="month" name="p.expiry.month" placeholder="00" maxlength="2" type="tel" data-rule-min="1" data-rule-max="12" data-rule-minlength="2" data-msg="ერთი თვის სპექტრი 01-12." data-msg-minlength="შეიყვანეთ 2 ციფრი" data-msg-required="გთხოვთ, შეავსოთ ცარიელი ველი" data-next-elem="year" tabindex="2" autocomplete="off" aria-required="true" class="empty">
+                                        </span>
+                                        <span style="color: #9c9c9c">/</span>
+                                        <span id="year-input" class="form-input">
+                                            <input id="year" name="p.expiry.year" maxlength="2" type="tel" class="empty" placeholder="00" data-rule-minlength="2" data-msg="მოქმედების ვადა არასწორია" data-msg-minlength="შეიყვანეთ 2 ციფრი" data-msg-required="გთხოვთ, შეავსოთ ცარიელი ველი" data-next-elem="cvc" tabindex="3" autocomplete="off" aria-required="true">
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div id="cvc-block" class="card-details-cvc d-none">
+                                    <p class="cvc-label card-details-title">CVV</p>
+                                    <div class="cvc">
+                                        <span id="cvc-input" class="form-input">
+                                            <input id="cvc" name="csc" maxlength="4" type="tel" class="empty" placeholder="- - -" required="required" data-rule-minlength="3" data-msg-minlength1="შეიყვანეთ" data-msg-minlength2="ციფრი" data-msg-required="გთხოვთ, შეავსოთ ცარიელი ველი" data-next-elem="name" tabindex="4" autocomplete="off" aria-required="true">
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="btns-group">
+                        <input class="btn btn-primary" id="btnPay" type="submit" tabindex="5" value="გაგრძელება" disabled="disabled">
+                    </div>
+                </form>
+            </div>
+
+            <div id="result" style="display: none;">
+                <div class="payment-info">
+                    <div tpl-if="result.failed">
+                        <div class="alert-triangle-block">
+                            <div class="alert-triangle"></div>
+                            <span>!</span>
+                        </div>
+                        <div class="error-block">
+                            <p>შეცდომა</p>
+                            <span class="result-error-description" tpl-if="result.extendedCode.description">
+                                {result.extendedCode.description}
+                            </span>
+                            <span class="result-error-description" tpl-if="result.suspended">
+                                ოპერაციის შედეგი დააზუსტეთ მაღაზიის კლიენტთა მხარდაჭერის სამსახურში.
+                            </span>
+                        </div>
+                    </div>
+                    <table>
+                        <tbody>
+                            <tr tpl-if="src.brand">
+                                <td>ბარათის ტიპი:</td>
+                                <td class="bold">{src.brand}</td>
+                            </tr>
+                            <tr tpl-if="src.issuerId">
+                                <td>ბარათის ემიტენტი:</td>
+                                <td class="bold">{src.issuerId}</td>
+                            </tr>
+                            <tr tpl-if="result.responseCodeDetails">
+                                <td>პასუხის კოდი:</td>
+                                <td class="bold">{result.responseCodeDetails}</td>
+                            </tr>
+                            <tr tpl-if="src.pan">
+                                <td>ბარათის ნომერი:</td>
+                                <td class="bold nowrap">{src.pan}</td>
+                            </tr>
+                            <tr tpl-if="src.applicationPan" class="row-group"><td>ApplePay PaymentToken:</td><td class="bold nowrap">{src.applicationPan}</td></tr>
+                            <tr tpl-if="dst.brand">
+                                <td>ბარათის ტიპი:</td>
+                                <td class="bold">{dst.brand}</td>
+                            </tr>
+                            <tr tpl-if="dst.pan">
+                                <td>მიმღების ბარათის მონაცემები:</td>
+                                <td class="bold nowrap">{dst.pan}</td>
+                            </tr>
+                            <tr tpl-if="merchant.url">
+                                <td>ვებ გვერდი:</td>
+                                <td class="bold">{merchant.url}</td>
+                            </tr>
+                            <tr>
+                                <td>ოპერაციის ნომერი:</td>
+                                <td class="bold">{result.trxId}</td>
+                            </tr>
+                            <tr>
+                                <td tpl-if="result.ts">თარიღი/დრო:</td>
+                                <td class="bold">{result.ts}</td>
+                            </tr>
+                            <tr tpl-if="result.approvalCode">
+                                <td>ავტორიზაციის კოდი:</td>
+                                <td class="bold">{result.approvalCode}</td>
+                            </tr>
+                            <tr tpl-if="result.rrn">
+                                <td>RRN:</td>
+                                <td class="bold">{result.rrn}</td>
+                            </tr>
+                            <tr>
+                                <td>სტატუსი:</td>
+                                <td class="bold">{result.status}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="result-message" tpl-if="result.offline">ვერ მოხერხდა გადახდის შესახებ ინფორმაციის მიწოდება მომსახურე კომპანიისთვის. დასტური გაიგზავნება მოგვიანებით.</p>
+                </div>
+                <div class="result-form no-print">
+                    <div class="btn-group">
+                        <button class="btn no-mobile btn-print" type="button" onclick="window.print()" style="margin-right:50px">
+                            შედეგის<br> ამობეჭდვა
+                        </button>
+                        <input tpl-if="result.back_url" type="button" class="btn btn-primary btn-back" value="უკან დაბრუნება" onclick="location.replace(&#39;{result.back_url}&#39;);">
+                    </div>
+
+
+                    <div tpl-if="result.emailReceiptEnabled" class="email">
+                        <p class="email-block-title">ამ მისამართზე მიიღებთ ინფორმაციას გადახდის</p>
+                        <form name="email-form" method="POST" class="email_input_block" autocomplete="off">
+                            <input class="form-input empty" id="email" name="email" maxlength="40" placeholder="E-mail">
+                            <input type="submit" class="btn btn-primary btn-email" id="email-link" value="გაგზავნა">
+                        </form>
+                        <span class="common-error-container"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="resultCardPage" style="display: none;">
+                <div class="payment-info">
+                    <h2 class="result-error" tpl-if="result.failed">რეგისტრირება არ შესრულდა</h2>
+                    <h2 class="result-success" tpl-if="result.success">რეგისტრირება დასრულდა წარმატებით</h2>
+                    <h2 class="result-error" tpl-if="result.suspended">ოპერაცია არ არის დასრულებული</h2>
+                    <div class="result-error-description" tpl-if="result.extendedCode.description">
+                        {result.extendedCode.description}
+                    </div>
+                    <div class="result-error-description" tpl-if="result.suspended">
+                        ოპერაციის შედეგი დააზუსტეთ მაღაზიის კლიენტთა მხარდაჭერის სამსახურში.
+                    </div>
+                    <div class="result-message" tpl-if="result.offline">
+                        ვერ მოხერხდა გადახდის შესახებ ინფორმაციის მიწოდება მომსახურე კომპანიისთვის. დასტური გაიგზავნება მოგვიანებით.
+                    </div>
+                    <table>
+                        <tbody>
+                            <tr tpl-if="src.pan" class="row-group">
+                                <td>ბარათის ნომერი:</td>
+                                <td class="bold nowrap">{src.pan}</td>
+                            </tr>
+                            <tr>
+                                <td>ოპერაციის ნომერი:</td>
+                                <td class="bold">{result.trxId}</td>
+                            </tr>
+                            <tr>
+                                <td tpl-if="result.ts">თარიღი/დრო:</td>
+                                <td class="bold">{result.ts}</td>
+                            </tr>
+                            <tr tpl-if="result.approvalCode">
+                                <td>ავტორიზაციის კოდი:</td>
+                                <td class="bold">{result.approvalCode}</td>
+                            </tr>
+                            <tr tpl-if="result.rrn">
+                                <td>RRN:</td>
+                                <td class="bold">{result.rrn}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="result-form no-print">
+                    <div class="btn-group">
+                        <button class="btn no-mobile btn-print" type="button" onclick="window.print()" style="margin-right:50px">შედეგის<br> ამობეჭდვა</button>
+                        <input tpl-if="result.back_url" type="button" class="btn btn-primary btn-back" value="უკან დაბრუნება" onclick="location.replace(&#39;{result.back_url}&#39;);">
+                    </div>
+
+
+                    <div tpl-if="result.success.interim_success" class="email">
+                        <p class="email-block-title">ამ მისამართზე მიიღებთ ინფორმაციას გადახდის</p>
+                        <form name="email-form" method="POST" class="email_input_block" autocomplete="off">
+                            <input class="form-input empty" id="email" name="p.email" maxlength="40" placeholder="E-mail">
+                            <input type="submit" class="btn btn-primary btn-email" id="email-link" value="გაგზავნა">
+                        </form>
+                        <span class="common-error-container"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="authentication" class="authenticationBlock card" style="display: none;">
+        <form id="authentication-form" class="payment-form" name="authentication" method="POST" autocomplete="off">
+            <div class="window-header">
+                <div class="media">
+                    <div class="circle-logo">
+                        {merchant.logo}
+                    </div>
+                    <div class="media-body">
+                        <p class="merchant-title">
+                            {merchant.name}
+                        </p>
+                        <div class="description">
+                            <div class="purchase-description">
+                                {description}
+                            </div>
+                            <div class="purchase-description">{geo}</div>
+                        </div>
+                    </div>
+
+                    <div id="hideIfP2P">
+                        <div class="window-header-title">თანხა:</div>
+                        <div class="purchase-amount" id="amount">{amount}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="top-form">
+                <div tpl-if="merchant.logoUrl" class="authentication-logo">
+                    <img src="./bgg_files/{merchant.logoUrl}" alt="">
+                </div>
+                <p class="upper-text">ავტორიზაცია 3D სერვისის საშუალებით</p>
+            </div>
+            <div class="authentication-description">
+                <div tpl-if="merchant.name" class="authentication-description__item">
+                    <div class="title">მერჩანტი</div>
+                    <div class="value">{merchant.name}</div>
+                </div>
+                <div tpl-if="src.issuerId" class="authentication-description__item">
+                    <div class="title">ბარათის ემიტენტი</div>
+                    <div class="value">{src.issuerId}</div>
+                </div>
+                <div tpl-if="amount" class="authentication-description__item amount">
+                    <div class="title">გადასახდელი თანხა</div>
+                    <div class="value">{amount}</div>
+                </div>
+                <div tpl-if="src.pan" class="authentication-description__item">
+                    <div class="title">ბარათის ნომერი</div>
+                    <div class="value">{pan.emitent}</div>
+                </div>
+            </div>
+            <p class="desc"><br>ერჯერადი კოდი გამოგზავნილია შენს ნომერზე</p>
+            <div class="authentication-field">
+                <input id="otp" name="otp" class="otp-input empty" placeholder="ერთჯერადი კოდი" autocomplete="off" required="required" data-msg-required="გთხოვთ, შეავსოთ ცარიელი ველი" type="password" tabindex="1" maxlength="8" data-next-elem="sendOTP" aria-required="true">
+                <button class="btn-otp-resend" type="button" disabled="disabled">
+                    <div class="lds-dual-ring"></div>
+                    ახალი კოდის მიღება
+                </button>
+            </div>
+
+            <div class="otp-error-container"></div>
+            <div class="otp_result"></div>
+
+            <div class="timer_block">
+                ახალი კოდის მოთხოვნა შესაძლებელია: <span id="OTPTimer">60</span> წამში.
+            </div>
+
+            <div class="btn-group otp-buttons">
+<!--                <button class="btn btn-print otp-cancel" type="button" style="margin-right:50px">გაუქმება</button>-->
+
+                <input class="btn btn-primary" id="sendOTP" type="submit" tabindex="2" value="გადახდა ({amount})">
+                <button class="btn btn-print otp-cancel" type="button" style="margin-right:50px">გაუქმება</button>
+            </div>
+            <div class="authentication-footer">
+                <img src="./bgg_files/georgiancard.svg" alt="">
+                <div class="short-info phone">
+                    <div class="title">ცხელი ხაზი</div>
+                    <a href="tel:*1010">*1010</a>
+                </div>
+                <div class="short-info site">
+                    <div class="title">ვებ გვერდი</div>
+                    {merchant.url}
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="footer">
+        <p class="no-print">მონაცემების გადაცემის უსაფრთხოება ინტერნეტ არხის საშუალებით უზრუნველყოფილია TLS პროტოკოლით</p>
+        <p class="no-print">მონაცემები დაცულია საერთაშორისო სტანდარტის PCI DSS-ის მიხედვით</p>
+        <div class="secure-logo no-print"><img src="./bgg_files/secure-logo.png" alt="secure"></div>
+    </div>
+    <script src="./bgg_files/pay.js"></script>
+    <iframe src="./bgg_files/payframe.html" height="0" width="0" allowpaymentrequest="true" style="display: none; visibility: hidden;"></iframe>
+
+<style>
+    #purchase{
+        display: block !important;
+    }
+
+    #offer{
+        display: block !important;
+    }
+    #payment-error{
+        display: none !important;
+    }
+</style>
+</body></html>
